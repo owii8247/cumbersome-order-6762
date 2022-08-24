@@ -16,7 +16,7 @@
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     -webkit-justify-content: start;
-    justify-content: start;
+    justify-content: flex-start;
     -webkit-box-align: start;
     -ms-flex-align: start;
     -webkit-align-items: start;

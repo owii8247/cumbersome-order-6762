@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SimpleGrid, Box, Input, Image, Flex, Stack, Button } from '@chakra-ui/react'
 import { FaMapMarkerAlt, FaShoppingCart, FaUserAlt, FaCreditCard, FaSearch } from 'react-icons/fa'
 import {Link} from "react-router-dom"
 
 const Navbar = () => {
+
     return (
         <>
             <SimpleGrid columns={[3, 3, 2, 1]} spacing={10}>
