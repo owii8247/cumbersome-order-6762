@@ -13,9 +13,9 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 const SliderComponent = () => {
     return (
         <>
-
-            <Flex justifyContent={"space-between"}>
-
+            
+            <Flex justifyContent={"space-between"} p={20} gap={25}>
+                
                 <Swiper
                     // spaceBetween={5}
                     centeredSlides={true}
@@ -38,6 +38,7 @@ const SliderComponent = () => {
 
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}>
+                    
                     <SwiperSlide>
                         <Image src="https://imageprod.fraazo.com/fraazo-prod/web_ban/2562.png" />
                     </SwiperSlide>
@@ -53,22 +54,22 @@ const SliderComponent = () => {
                     <SwiperSlide>
                         <Image src="https://imageprod.fraazo.com/fraazo-prod/web_ban/4923.png" />
                     </SwiperSlide>
+                    
                 </Swiper>
-
+                
                 <Stack mr={10}>
                     
-                        <Image w={"380"} h={"90"} src="https://webasset.fraazo.com/production/Web1.ab035db9ab9fe7b21326.png" />
+                        <Image w={400} h={90} src="https://webasset.fraazo.com/production/Web1.ab035db9ab9fe7b21326.png" />
                         <br />
                     
                     
-                        <Image w={"380"} h={"90"} src="https://webasset.fraazo.com/production/Web2.3f0b675c24dcb702b13d.png" />
+                        <Image w={400} h={90} src="https://webasset.fraazo.com/production/Web2.3f0b675c24dcb702b13d.png" />
                         <br />
                     
-                        <Image w={"380"} h={"90"} src="https://webasset.fraazo.com/production/Web3.e2495d9eb26022ba0363.png" />
+                        <Image w={400} h={90} src="https://webasset.fraazo.com/production/Web3.e2495d9eb26022ba0363.png" />
                         <br />
                 </Stack>
             </Flex>
-            <br />
             <Divider />
         </>
     )
