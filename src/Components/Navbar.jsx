@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { SimpleGrid, Box, Input, Image, Flex, Stack, Button, useDisclosure, Text } from '@chakra-ui/react'
-import { FaMapMarkerAlt, FaShoppingCart, FaUserAlt, FaCreditCard, FaSearch } from 'react-icons/fa'
-import { Link } from "react-router-dom"
+import { FaMapMarkerAlt, FaShoppingCart, FaUserAlt, FaCreditCard } from 'react-icons/fa'
+import { Link, useNavigate } from "react-router-dom"
 import {
     Modal,
     ModalOverlay,
@@ -11,27 +11,57 @@ import {
     ModalBody,
     ModalCloseButton,
     FormLabel,
-    FormControl
+    FormControl,
+    FormHelperText
 } from '@chakra-ui/react'
+import {
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+  } from '@chakra-ui/react'
+import axios from "axios"
+import { AuthContext } from "../Context/AppContext";
+
 
 const Navbar = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const[form, setForm] = useState(
+    const navigate = useNavigate();
+    const { state, dispatch, isAuth } = useContext(AuthContext)
+    const [formData, setFormData] = useState(
         {
-            name:"",
-            number:""
+            name: "",
+            number: "",
+            email:"",
+            password:""
 
         })
 
-    const handleChange=(e)=>{
-        const{name,value} = e.target
-        setForm({...form,[name]:value})
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
     }
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(form)
+        console.log(formData)
+        axios.post("https://reqres.in/api/login", {
+        email: formData.email,
+        password: formData.password
+      })
+      .then((res) => {
+        console.log(res.data);
+        dispatch({
+          type: "LOGIN_SUCCESS",
+          token: res.data.token
+        });
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("error");
+      })
+
 
     }
 
@@ -62,60 +92,78 @@ const Navbar = () => {
                                 {/* Login Modal  */}
 
                                 {/* <Link to="/login"> */}
-                                    <Button variant='ghost' colorScheme='white' gap={"2"}
+                                <Button variant='ghost' colorScheme='white' gap={"2"}
                                     onClick={onOpen}
-                                    >
-                                        <Box><FaUserAlt /></Box>
-                                        <Box >{true ? "Login" : "Logout"}</Box>
-                                    </Button>
-                                    <Modal
-                                       
-                                        isOpen={isOpen}
-                                        onClose={onClose}
-                                    >
-                                        <ModalOverlay />
-                                        <ModalContent>
-                                            <ModalHeader>Welcome to Fraazo!</ModalHeader>
-                                            <ModalCloseButton />
-                                            <ModalBody pb={6}>
-                                                <Text fontSize="sm">Sign In to track your Order and More.</Text>
-                                              
-                                              
-                                                <form onSubmit={handleSubmit}>
-                                                
-                                                <Input 
-                                                    variant='flushed' 
-                                                    placeholder='Enter Your Name'
-                                                    type="text"
-                                                    value={form.name}
-                                                    name="name"
-                                                    onChange={handleChange}
-                                                />
-                                                    <br />
-                                                    <Input 
-                                                    variant='flushed' 
-                                                    placeholder='Enter Your Mobile Number'
-                                                    type="number"
-                                                    value={form.number}
-                                                    name="number"
-                                                    onChange={handleChange}
-                                                    />
-                                                    <Text fontSize="xs">We will send you an OTP on this number</Text>
-                                                    <br />
-                                                    
-                                                <Input type="submit" value="Get OTP" />
-                                                
-                                                
-                                                </form>
-                                            </ModalBody>
+                                >
+                                    <Box><FaUserAlt /></Box>
+                                    <Box >{!isAuth ? "Login" : "Logout"}</Box>
+                                </Button>
+                                <Modal
 
-                                            <ModalFooter>
-                                                
-                                                
-                                               
-                                            </ModalFooter>
-                                        </ModalContent>
-                                    </Modal>
+                                    isOpen={isOpen}
+                                    onClose={onClose}
+                                >
+                                    <ModalOverlay />
+                                    <ModalContent>
+                                        <ModalHeader>Welcome to Fraazo!</ModalHeader>
+                                        <ModalCloseButton />
+                                        <ModalBody pb={6}>
+                                            <Text fontSize="sm">Sign In to track your Order and More.</Text>
+                                            <br />
+
+
+                                            <form onSubmit={handleSubmit}>
+                                                <FormControl >
+                                                    <Input
+                                                        variant='flushed'
+                                                        placeholder='Enter Your Name'
+                                                        type="text"
+                                                        value={formData.name}
+                                                        name="name"
+                                                        onChange={handleChange}
+                                                    />
+                                                    <br />
+                                                    <Input
+                                                        variant='flushed'
+                                                        placeholder='Enter Your Mobile Number'
+                                                        type="number"
+                                                        value={formData.number}
+                                                        name="number"
+                                                        onChange={handleChange}
+                                                    />
+                                                    <br />
+                                                    <Input
+                                                        variant='flushed'
+                                                        type='email'
+                                                        value={formData.email}
+                                                        name="email"
+                                                        placeholder='Enter email'
+                                                        onChange={handleChange}
+                                                    />
+                                                    <br />
+                                                    <Input
+                                                        variant='flushed'
+                                                        type='password'
+                                                        value={formData.password}
+                                                        name="password"
+                                                        onChange={handleChange}
+                                                        placeholder="Enter password"
+                                                    />
+                                                    <FormHelperText>We'll never share your personal information.</FormHelperText>
+                                                    <br />
+                                                    <Input backgroundColor={"green"} type="submit" value="CREATE ACCOUNT" cursor={"pointer"} color={"white"} fontWeight={"bold"}/>
+
+                                                </FormControl>
+                                            </form>
+                                        </ModalBody>
+
+                                        <ModalFooter>
+
+
+
+                                        </ModalFooter>
+                                    </ModalContent>
+                                </Modal>
                                 {/* </Link> */}
 
                             </Flex>
