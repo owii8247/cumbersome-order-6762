@@ -9,6 +9,7 @@ import "swiper/css/bundle"
 
 
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from 'react-router-dom';
 
 const SliderComponent = () => {
     return (
@@ -39,21 +40,33 @@ const SliderComponent = () => {
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}>
                     
+                    
                     <SwiperSlide>
+                    <Link to="/products">
                         <Image src="https://imageprod.fraazo.com/fraazo-prod/web_ban/2562.png" />
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
+                    <Link to="/products">
                         <Image src="https://imageprod.fraazo.com/fraazo-prod/web_ban/4985.png" />
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
+                    <Link to="/products">
                         <Image src="https://imageprod.fraazo.com/fraazo-prod/web_ban/4986.png" />
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
+                    <Link to="/products">
                         <Image src="https://imageprod.fraazo.com/fraazo-prod/web_ban/4820.png" />
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
+                    <Link to="/products">
                         <Image src="https://imageprod.fraazo.com/fraazo-prod/web_ban/4923.png" />
+                        </Link>
                     </SwiperSlide>
+                    
                     
                 </Swiper>
                 

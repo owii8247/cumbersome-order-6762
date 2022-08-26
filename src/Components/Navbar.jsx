@@ -14,7 +14,6 @@ import {
     FormHelperText
 } from '@chakra-ui/react'
 
-import axios from "axios"
 import { AuthContext } from "../Context/AppContext";
 
 
@@ -22,7 +21,7 @@ const Navbar = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navigate = useNavigate();
-    const { isAuth } = useContext(AuthContext)
+    const {state, isAuth, dispatch } = useContext(AuthContext)
     const [formData, setFormData] = useState(
         {
             name: "",
@@ -60,7 +59,7 @@ const Navbar = () => {
                                     <Box><FaShoppingCart color='green' /></Box>
                                     <Box>Cart</Box>
                                 </Button>
-                                {!isAuth ? <>
+                                {!state.isAuth ? <>
                                     <Button variant='ghost' colorScheme='white' disabled gap={"2"}>
                                         <Box><FaCreditCard /></Box>
                                         <Box>Credit</Box>
@@ -75,15 +74,15 @@ const Navbar = () => {
 
                                 {/* <Link to="/login"> */}
 
-                                {isAuth ? <>                                 
-                                <Button variant='ghost' colorScheme='white' gap={"2"}
-                                    onClick={onOpen}
+                                {state.isAuth ? <>                                 
+                                    <Button variant='ghost' colorScheme='white' gap={"2"}
+                                    
+                                    onClick={() => dispatch({ type: "LOGOUT_SUCCESS" })}
                                 >
                                     <Box><FaUserAlt /></Box>
-                                    <Box >{formData.name}</Box>
-                                </Button></> : <Button variant='ghost' colorScheme='white' gap={"2"}
-                                    onClick={onOpen}
-                                >
+                                    <Box >{state.token}</Box>
+
+                                </Button></> : <Button onClick={onOpen} variant='ghost' colorScheme='white' gap={"2"}>
                                     <Box><FaUserAlt /></Box>
                                     <Box >Login</Box>
                                 </Button>}
