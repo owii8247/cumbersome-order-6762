@@ -57,10 +57,12 @@ const MiddleSection = () => {
             <br /><br /><br />
            <Flex justifyContent={'center'} gap={10}>
             
-                
+                <Link to="/fruits"> 
                     <Image w={300} h={280} src="https://imagemaster.fraazo.com/fraazo-master/webban/Fruits.png" />
+                </Link>  
+                <Link to="/vegetables"> 
                     <Image w={300} h={280} src="https://imagemaster.fraazo.com/fraazo-master/webban/Vegetables.png" />
-            
+                </Link> 
             
             </Flex>
             <br />

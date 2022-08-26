@@ -17,7 +17,7 @@ import { AddIcon, MinusIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { getPage, getSort } from '../utils/utils'
 import Pagination from '../Components/Pagination'
 
-const Products = () => {
+const VegetablesPage = () => {
   const [data, setData] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
   const initSort = getSort(searchParams.get("setOrder"))
@@ -25,7 +25,7 @@ const Products = () => {
   const initPage = getPage(searchParams.get("page"))
   const[page, setPage] = useState(initPage)
   useEffect(() => {
-    axios(`https://fraazo-api.herokuapp.com/api/products?_sort=subCategory&_order=${sortById}&_page=${page}_limit=20`)
+    axios(`https://fraazo-api.herokuapp.com/api/products?_start=25&_limit=20`)
       .then((res) => {
         console.log(res)
         setData(res.data)
@@ -104,7 +104,7 @@ const Products = () => {
                       <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Daily Veggies </AccordionButton>
                       <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Herbs & Leafies </AccordionButton>
                       <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Exotic Vegetables </AccordionButton>
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Cuts & Sprouts </AccordionButton>
+                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Cuts & Peeled</AccordionButton>
                       <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Vegetable Combos </AccordionButton>
 
 
@@ -169,4 +169,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default VegetablesPage
