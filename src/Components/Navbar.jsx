@@ -10,16 +10,10 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
-    FormLabel,
     FormControl,
     FormHelperText
 } from '@chakra-ui/react'
-import {
-    Alert,
-    AlertIcon,
-    AlertTitle,
-    AlertDescription,
-  } from '@chakra-ui/react'
+
 import axios from "axios"
 import { AuthContext } from "../Context/AppContext";
 
@@ -28,13 +22,12 @@ const Navbar = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navigate = useNavigate();
-    const { state, dispatch, isAuth } = useContext(AuthContext)
+    const { isAuth } = useContext(AuthContext)
     const [formData, setFormData] = useState(
         {
             name: "",
-            number: "",
-            email:"",
-            password:""
+            number: ""
+           
 
         })
 
@@ -46,23 +39,6 @@ const Navbar = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
-        axios.post("https://reqres.in/api/login", {
-        email: formData.email,
-        password: formData.password
-      })
-      .then((res) => {
-        console.log(res.data);
-        dispatch({
-          type: "LOGIN_SUCCESS",
-          token: res.data.token
-        });
-        navigate("/");
-      })
-      .catch((err) => {
-        console.log("error");
-      })
-
-
     }
 
     return (
@@ -81,23 +57,36 @@ const Navbar = () => {
                             <Input width='600px' padding={"1.5rem"} borderRadius={"2rem"} placeholder='Find fresh vegetables, fruits, dairy...' />
                             <Flex justifyContent='space-between' gap={"20px"} cursor={"pointer"}>
                                 <Button variant='ghost' colorScheme='white' gap={"2"}>
-                                    <Box><FaShoppingCart /></Box>
+                                    <Box><FaShoppingCart color='green' /></Box>
                                     <Box>Cart</Box>
                                 </Button>
-                                <Button variant='ghost' colorScheme='white' disabled gap={"2"}>
-                                    <Box><FaCreditCard /></Box>
-                                    <Box>Credit</Box>
-                                </Button>
+                                {!isAuth ? <>
+                                    <Button variant='ghost' colorScheme='white' disabled gap={"2"}>
+                                        <Box><FaCreditCard /></Box>
+                                        <Box>Credit</Box>
+                                    </Button></> : <>
+                                    <Button variant='ghost' colorScheme='white' gap={"2"}>
+                                        <Box><FaCreditCard  /></Box>
+                                        <Box>Credit</Box>
+                                    </Button></>}
+
 
                                 {/* Login Modal  */}
 
                                 {/* <Link to="/login"> */}
+
+                                {isAuth ? <>                                 
                                 <Button variant='ghost' colorScheme='white' gap={"2"}
                                     onClick={onOpen}
                                 >
                                     <Box><FaUserAlt /></Box>
-                                    <Box >{!isAuth ? "Login" : "Logout"}</Box>
-                                </Button>
+                                    <Box >{formData.name}</Box>
+                                </Button></> : <Button variant='ghost' colorScheme='white' gap={"2"}
+                                    onClick={onOpen}
+                                >
+                                    <Box><FaUserAlt /></Box>
+                                    <Box >Login</Box>
+                                </Button>}
                                 <Modal
 
                                     isOpen={isOpen}
@@ -132,27 +121,12 @@ const Navbar = () => {
                                                         onChange={handleChange}
                                                     />
                                                     <br />
-                                                    <Input
-                                                        variant='flushed'
-                                                        type='email'
-                                                        value={formData.email}
-                                                        name="email"
-                                                        placeholder='Enter email'
-                                                        onChange={handleChange}
-                                                    />
-                                                    <br />
-                                                    <Input
-                                                        variant='flushed'
-                                                        type='password'
-                                                        value={formData.password}
-                                                        name="password"
-                                                        onChange={handleChange}
-                                                        placeholder="Enter password"
-                                                    />
+                                                    
                                                     <FormHelperText>We'll never share your personal information.</FormHelperText>
                                                     <br />
-                                                    <Input backgroundColor={"green"} type="submit" value="CREATE ACCOUNT" cursor={"pointer"} color={"white"} fontWeight={"bold"}/>
-
+                                                    <Link to="/login">
+                                                    <Input backgroundColor={"green"} type="submit" value="CREATE ACCOUNT" cursor={"pointer"} color={"white"} fontWeight={"bold"} />
+                                                    </Link>
                                                 </FormControl>
                                             </form>
                                         </ModalBody>
