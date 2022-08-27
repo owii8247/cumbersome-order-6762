@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useState } from 'react'
 export const AuthContext = createContext()
 
 export const appReducer = (state, action) => {
@@ -30,14 +30,24 @@ export const appReducer = (state, action) => {
   }
 }
 
+
+
 const AppContext = ({ children }) => {
+  const [count,setCount] = useState(0)
+  const addCount =()=>{
+    setCount(count+1)
+  }
+  const subCount =()=>{
+    setCount(count-1)
+  }
+
   const [state, dispatch] = useReducer(appReducer, {
     isAuth: false,
     token: null
   })
   return (
     <>
-      <AuthContext.Provider value={{ state, dispatch }}>{children}</AuthContext.Provider>
+      <AuthContext.Provider value={{ state, dispatch, addCount, subCount, count }}>{children}</AuthContext.Provider>
     </>
   )
 }

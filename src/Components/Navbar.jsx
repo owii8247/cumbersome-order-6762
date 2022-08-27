@@ -21,7 +21,7 @@ const Navbar = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navigate = useNavigate();
-    const {state, isAuth, dispatch } = useContext(AuthContext)
+    const {state, isAuth, dispatch, count } = useContext(AuthContext)
     const [formData, setFormData] = useState(
         {
             name: "",
@@ -57,6 +57,7 @@ const Navbar = () => {
                             <Flex justifyContent='space-between' gap={"20px"} cursor={"pointer"}>
                                 <Button variant='ghost' colorScheme='white' gap={"2"}>
                                     <Box><FaShoppingCart color='green' /></Box>
+                                    <Box fontSize='xs'>{count}</Box>
                                     <Box>Cart</Box>
                                 </Button>
                                 {!state.isAuth ? <>
@@ -124,7 +125,8 @@ const Navbar = () => {
                                                     <FormHelperText>We'll never share your personal information.</FormHelperText>
                                                     <br />
                                                     <Link to="/login">
-                                                    <Input backgroundColor={"green"} type="submit" value="CREATE ACCOUNT" cursor={"pointer"} color={"white"} fontWeight={"bold"} />
+                                                    
+                                                    <Input backgroundColor={"green"} type="submit" value="CREATE ACCOUNT" cursor={"pointer"} color={"white"} fontWeight={"bold"}  />
                                                     </Link>
                                                 </FormControl>
                                             </form>

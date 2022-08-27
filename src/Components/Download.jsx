@@ -34,8 +34,8 @@ const Download = () => {
                             <br />
                             <Text w={"80%"} textAlign={"start"}>Enter your phone number to receive a text with a link to download the app</Text>
                             <br /><br />
-                            <Button border={"1px solid black"} colorScheme={"whiteAlpha"} borderRadius={"1rem"} padding={"1.5rem"}>
-                                <Tabs variant='soft-rounded' colorScheme={"linkedin"}>
+                            <Button border={"0.1px solid green"} colorScheme={"whiteAlpha"} borderRadius={"1rem"} padding={"1.5rem"}>
+                                <Tabs variant='soft-rounded' colorScheme={"green"}>
                                     <TabList>
                                         <Tab><FaGooglePlay />Android</Tab>
                                         <Tab><FaApple />IPhone</Tab>
@@ -49,7 +49,7 @@ const Download = () => {
                                 <Input type='tel' placeholder='Enter Your Mobile Number' />
                             </InputGroup>
                             <br />
-                            <Button colorScheme='blue' padding={"1.5rem"} w={"90%"}>SUBMIT</Button>
+                            <Button colorScheme='green' padding={"1.5rem"} w={"90%"}>SUBMIT</Button>
                             <br /><br /><br />
                             <Flex justifyContent={"space-evenly"}>
                                 <Button colorScheme={"whiteAlpha"} color={"black"}>Available On</Button>

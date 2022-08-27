@@ -16,7 +16,7 @@ const Header = () => {
                     </Select>
                     
                     
-                    <Select variant='flushed' placeholder='Vegetables' w={120}>
+                    <Select variant='flushed' placeholder='Vegetables' w={120} >
                     
                         <option value='option1'>Daily Veggies</option>
                         <option value='option2'>Herbs & Leafies</option>
