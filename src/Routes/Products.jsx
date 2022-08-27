@@ -1,5 +1,5 @@
 import { Box, Button, Container, Flex, SimpleGrid, Stack, Text, Image, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
 import Footer from '../Components/Footer'
 import Header from '../Components/Header'
@@ -16,6 +16,17 @@ import {
 import { AddIcon, MinusIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { getPage, getSort } from '../utils/utils'
 import Pagination from '../Components/Pagination'
+import { AuthContext } from '../Context/AppContext'
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverArrow,
+  PopoverCloseButton,
+  Portal
+} from '@chakra-ui/react'
 
 const Products = () => {
   const [data, setData] = useState([])
@@ -24,8 +35,9 @@ const Products = () => {
   const[sortById, setSortById] = useState(initSort)
   const initPage = getPage(searchParams.get("page"))
   const[page, setPage] = useState(initPage)
+  const {count, addCount, subCount} = useContext(AuthContext)
   useEffect(() => {
-    axios(`https://fraazo-api.herokuapp.com/api/products?_sort=subCategory&_order=${sortById}&_page=${page}_limit=20`)
+    axios(`https://fraazo-api.herokuapp.com/api/products?_sort=category&_order=${sortById}&_page=${page}_limit=12`)
       .then((res) => {
         console.log(res)
         setData(res.data)
@@ -116,7 +128,8 @@ const Products = () => {
 
           </Box>
           <Box w={"80%"} >
-            <Flex justifyContent={"flex-start"} p={5}>
+            <Flex justifyContent={"space-between"} p={5}>
+              <Box>
           <Breadcrumb separator=">">
               <BreadcrumbItem>
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -126,8 +139,10 @@ const Products = () => {
                 <BreadcrumbLink href="/products">Products</BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
+            </Box>
+            <Box><Flex justifyContent={"end"}  color={"white"}><Pagination current={page} total={10} changePage={handlePageChange}/></Flex></Box>
             </Flex>
-            <SimpleGrid columns={[1, 2, 4, 4]} ml={10} spacing={5} >
+            <SimpleGrid columns={[1, 2, 3, 3]} ml={10} spacing={5} >
 
 
 
@@ -144,12 +159,36 @@ const Products = () => {
                           <Text textAlign={"start"} fontSize='xs'>{item.packSize}</Text>
                           <Text fontWeight={"bold"} textAlign={"start"} fontSize='sm'>₹ {item.price}</Text>
                         </Box>
-                        <Button variant='ghost' colorScheme='white' borderRadius={25} border={"0.5px solid green"} color={"green"} gap={"2"}
+                        {/* <Button variant='ghost' colorScheme='white' borderRadius={25} border={"0.5px solid green"} color={"green"} gap={"2"}
                           _hover={{ backgroundColor: "green", color: "white" }}>
 
                           <Box><FaShoppingCart /></Box>
                           <Text fontSize='xs'>ADD</Text>
-                        </Button>
+                        </Button> */}
+                        <Button colorScheme='white'>
+                                        <Popover>
+                                            <PopoverTrigger>
+                                                <Button variant='ghost' colorScheme='white' borderRadius={25} border={"0.5px solid green"} color={"green"} gap={"2"}
+                                                    _hover={{ backgroundColor: "green", color: "white" }}>
+
+                                                    <Box><FaShoppingCart /></Box>
+                                                    <Text fontSize='xs'>ADD</Text></Button>
+                                            </PopoverTrigger>
+                                            <Portal >
+                                                <PopoverContent bg={"red.50"}>
+                                                    <PopoverArrow />
+                                                    <PopoverHeader>Add To Cart</PopoverHeader>
+                                                    <PopoverCloseButton />
+                                                    <PopoverBody>
+                                                        <Button colorScheme='green' disabled={count === 0} onClick={subCount}>-</Button>
+                                                        <Button colorScheme='white' color={"green"}>{count}</Button>
+                                                        <Button colorScheme='green' onClick={addCount}>+</Button>
+                                                    </PopoverBody>
+                                                </PopoverContent>
+                                            </Portal>
+                                        </Popover>
+
+                                    </Button>
 
                       </Flex>
                       <br />
@@ -159,7 +198,7 @@ const Products = () => {
                 ))}
             </SimpleGrid>
             <br />
-            <Flex justifyContent={"end"}  color={"white"}><Pagination current={page} total={5} changePage={handlePageChange}/></Flex>
+
           </Box>
         </Flex>
 
