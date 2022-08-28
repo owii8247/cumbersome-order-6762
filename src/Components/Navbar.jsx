@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { SimpleGrid, Box, Input, Image, Flex, Stack, Button, useDisclosure, Text } from '@chakra-ui/react'
 import { FaMapMarkerAlt, FaShoppingCart, FaUserAlt, FaCreditCard } from 'react-icons/fa'
 import { Link, useNavigate } from "react-router-dom"
@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 
 import { AuthContext } from "../Context/AppContext";
+
 
 
 const Navbar = () => {
@@ -40,34 +41,38 @@ const Navbar = () => {
         console.log(formData)
     }
 
+
+
+
     return (
-        <>
+    
+        <div >
             <SimpleGrid columns={[3, 3, 2, 1]} spacing={10}>
                 <Box>
                     <Stack>
-                        <Flex justifyContent={"space-around"} padding={"1rem"}>
+                        <Flex justifyContent={"space-around"} padding={"1rem"} color={"GrayText"}>
                             <Flex gap={"15px"} cursor={"pointer"}>
                                 <Link to="/"><Box><Image height='40px' width='140px' src="https://webasset.fraazo.com/production/b70a67f4e825e3d388ac4466952c20a8.svg" /></Box></Link>
                                 <Button variant='ghost' colorScheme='white' gap={"2"}>
-                                    <Box><FaMapMarkerAlt /></Box>
-                                    <Box>Mumbai</Box>
+                                    <Box fontSize={"sm"}><FaMapMarkerAlt /></Box>
+                                    <Box fontSize={"sm"}>Mumbai</Box>
                                 </Button>
                             </Flex>
-                            <Input width='600px' padding={"1.5rem"} borderRadius={"2rem"} placeholder='Find fresh vegetables, fruits, dairy...' />
+                            <Input width='600px' padding={"1.5rem"} borderRadius={"2rem"} color={"GrayText"} fontSize={"sm"} placeholder='Find fresh vegetables, fruits, dairy...' />
                             <Flex justifyContent='space-between' gap={"20px"} cursor={"pointer"}>
                                 <Button variant='ghost' colorScheme='white' gap={"2"}>
-                                    <Box><FaShoppingCart color='green' /></Box>
+                                    <Box fontSize={"sm"}><FaShoppingCart color='green' /></Box>
                                     <Box fontSize='xs'>{count}</Box>
-                                    <Box>Cart</Box>
+                                    <Box fontSize={"sm"}>Cart</Box>
                                 </Button>
                                 {!state.isAuth ? <>
                                     <Button variant='ghost' colorScheme='white' disabled gap={"2"}>
-                                        <Box><FaCreditCard /></Box>
-                                        <Box>Credit</Box>
+                                        <Box fontSize={"sm"}><FaCreditCard /></Box>
+                                        <Box fontSize={"sm"}>Credit</Box>
                                     </Button></> : <>
                                     <Button variant='ghost' colorScheme='white' gap={"2"}>
-                                        <Box><FaCreditCard  /></Box>
-                                        <Box>Credit</Box>
+                                        <Box fontSize={"sm"}><FaCreditCard  /></Box>
+                                        <Box fontSize={"sm"}>Credit</Box>
                                     </Button></>}
 
 
@@ -80,12 +85,12 @@ const Navbar = () => {
                                     
                                     onClick={() => dispatch({ type: "LOGOUT_SUCCESS" })}
                                 >
-                                    <Box><FaUserAlt /></Box>
-                                    <Box >{state.token}</Box>
+                                    <Box fontSize={"sm"}><FaUserAlt /></Box>
+                                    <Box fontSize={"sm"}>{state.token}</Box>
 
                                 </Button></> : <Button onClick={onOpen} variant='ghost' colorScheme='white' gap={"2"}>
-                                    <Box><FaUserAlt /></Box>
-                                    <Box >Login</Box>
+                                    <Box fontSize={"sm"}><FaUserAlt /></Box>
+                                    <Box fontSize={"sm"}>Login</Box>
                                 </Button>}
                                 <Modal
 
@@ -96,13 +101,13 @@ const Navbar = () => {
                                     <ModalContent>
                                         <ModalHeader>Welcome to Fraazo!</ModalHeader>
                                         <ModalCloseButton />
-                                        <ModalBody pb={6}>
+                                        <ModalBody pb={6} color={"GrayText"}>
                                             <Text fontSize="sm">Sign In to track your Order and More.</Text>
                                             <br />
 
 
-                                            <form onSubmit={handleSubmit}>
-                                                <FormControl >
+                                            <form onSubmit={handleSubmit} >
+                                                <FormControl color={"GrayText"} >
                                                     <Input
                                                         variant='flushed'
                                                         placeholder='Enter Your Name'
@@ -148,7 +153,8 @@ const Navbar = () => {
                 </Box>
             </SimpleGrid>
             <hr />
-        </>
+        </div>
+        
     )
 }
 

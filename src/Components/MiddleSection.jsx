@@ -34,7 +34,7 @@ const MiddleSection = () => {
     console.log("final", data)
     return (
         <>
-            <Text fontSize='3xl' fontWeight={"light"} textAlign={"start"} pl={10}>BEST DEALS</Text>
+            <Text fontSize='3xl' fontWeight={"light"} textAlign={"start"} pl={10} color={"GrayText"}>BEST DEALS</Text>
 
             <Divider />
             <br />
@@ -47,11 +47,11 @@ const MiddleSection = () => {
 
                             <Stack>
                                 <Link to={`/products/${item.id}`}><Image w={250} h={200} bg={"#f9f9f9"} src={item.imgUrl} /></Link>
-                                <Text textAlign={"start"} fontSize='sm'>{item.name}</Text>
+                                <Text textAlign={"start"} fontSize='sm' color={"GrayText"}>{item.name}</Text>
                                 <br />
                                 <Flex justifyContent={"space-between"} gap={20}>
                                     <Box w={10}>
-                                        <Text textAlign={"start"} fontSize='xs'>{item.packSize}</Text>
+                                        <Text textAlign={"start"} fontSize='xs' color={"GrayText"}>{item.packSize}</Text>
                                         <Text fontWeight={"bold"} textAlign={"start"} fontSize='sm'>₹ {item.price}</Text>
                                     </Box>
                                     {/* <Button variant='ghost' colorScheme='white' borderRadius={25} border={"0.5px solid green"} color={"green"} gap={"2"}

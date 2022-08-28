@@ -15,10 +15,10 @@ const SliderComponent = () => {
     return (
         <>
             
-            <Flex justifyContent={"space-between"} p={20} gap={25}>
+            <Flex justifyContent={"space-between"} p={10} gap={40}>
                 
                 <Swiper
-                    // spaceBetween={5}
+                    
                     centeredSlides={true}
                     autoplay={{
                         delay: 2500,

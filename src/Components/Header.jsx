@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 const Header = () => {
     return (
         <>
-            <Flex justifyContent={"center"}>
+            <Flex justifyContent={"center"} >
                     
-                    <Select variant='flushed' placeholder='Fruits' w={100} >
+                    <Select variant='flushed' placeholder='Fruits' w={100} fontSize={"xs"} color={"GrayText"}>
                     
                         <option value='option1'>Exotic Fruits</option>
                         <option value='option2'>Fresh Fruits</option>
@@ -16,7 +16,7 @@ const Header = () => {
                     </Select>
                     
                     
-                    <Select variant='flushed' placeholder='Vegetables' w={120} >
+                    <Select variant='flushed' placeholder='Vegetables' w={120} fontSize={"xs"} color={"GrayText"}>
                     
                         <option value='option1'>Daily Veggies</option>
                         <option value='option2'>Herbs & Leafies</option>

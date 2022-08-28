@@ -65,14 +65,14 @@ const FruitsPage = () => {
         <Flex>
           <Box w={"20%"} p={3}>
 
-            <Accordion allowMultiple>
+            <Accordion allowMultiple color={"GrayText"}>
 
 
               <AccordionItem>
                 {({ isExpanded }) => (
                   <>
                     <h2>
-                      <AccordionButton gap={2}>
+                      <AccordionButton gap={2} _hover={{ color:"black"}}>
                         {isExpanded ? (
                           <MinusIcon fontSize='12px' />
                         ) : (
@@ -86,9 +86,9 @@ const FruitsPage = () => {
                     </h2>
                     <AccordionPanel pb={4}>
 
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Exotic Fruits </AccordionButton>
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Fresh Fruits </AccordionButton>
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Fruit Combos </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Exotic Fruits </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Fresh Fruits </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Fruit Combos </AccordionButton>
 
                     </AccordionPanel>
                   </>
@@ -98,7 +98,7 @@ const FruitsPage = () => {
                 {({ isExpanded }) => (
                   <>
                     <h2>
-                      <AccordionButton gap={2}>
+                      <AccordionButton gap={2} _hover={{ color:"black"}}>
                         {isExpanded ? (
                           <MinusIcon fontSize='12px' />
                         ) : (
@@ -113,11 +113,11 @@ const FruitsPage = () => {
                     <AccordionPanel pb={4}>
 
 
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Daily Veggies </AccordionButton>
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Herbs & Leafies </AccordionButton>
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Exotic Vegetables </AccordionButton>
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Cuts & Sprouts </AccordionButton>
-                      <AccordionButton gap={2} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Vegetable Combos </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Daily Veggies </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Herbs & Leafies </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Exotic Vegetables </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Cuts & Sprouts </AccordionButton>
+                      <AccordionButton gap={2} _hover={{ color:"black"}} onClick={()=>setSortById(isAscending ? "DESC" : "ASC")}><ChevronRightIcon />Vegetable Combos </AccordionButton>
 
 
                     </AccordionPanel>
@@ -131,21 +131,21 @@ const FruitsPage = () => {
             <Flex justifyContent={"space-between"} p={5}>
             <Box>
           <Breadcrumb separator=">">
-              <BreadcrumbItem>
+              <BreadcrumbItem color={"GrayText"} fontSize={"sm"}>
                 <BreadcrumbLink href="/">Home</BreadcrumbLink>
               </BreadcrumbItem>
 
-              <BreadcrumbItem>
+              <BreadcrumbItem color={"GrayText"} fontSize={"sm"}>
                 <BreadcrumbLink href="/products">Products</BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbItem>
+              <BreadcrumbItem fontSize={"sm"}>
                 <BreadcrumbLink href="/fruits">Fruits</BreadcrumbLink>
               </BreadcrumbItem>
             </Breadcrumb>
             </Box>
             <Box><Flex justifyContent={"end"}  color={"white"}><Pagination current={page} total={5} changePage={handlePageChange}/></Flex></Box>
             </Flex>
-            <SimpleGrid columns={[1, 2, 3,3]} ml={10} spacing={5} >
+            <SimpleGrid columns={[1, 2, 2,3]} ml={10} spacing={5} >
 
 
 
@@ -155,11 +155,11 @@ const FruitsPage = () => {
 
                     <Stack>
                       <Link to={`/products/${item.id}`}><Image w={250} h={200} bg={"#f9f9f9"} src={item.imgUrl} /></Link>
-                      <Text textAlign={"start"} fontSize='sm'>{item.name}</Text>
+                      <Text textAlign={"start"} fontSize='sm' color={"GrayText"}>{item.name}</Text>
                       <br />
                       <Flex justifyContent={"space-between"} gap={20}>
                         <Box w={10}>
-                          <Text textAlign={"start"} fontSize='xs'>{item.packSize}</Text>
+                          <Text textAlign={"start"} fontSize='xs' color={"GrayText"}>{item.packSize}</Text>
                           <Text fontWeight={"bold"} textAlign={"start"} fontSize='sm'>₹ {item.price}</Text>
                         </Box>
                         {/* <Button variant='ghost' colorScheme='white' borderRadius={25} border={"0.5px solid green"} color={"green"} gap={"2"}
