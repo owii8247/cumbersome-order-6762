@@ -53,7 +53,7 @@ const handleChange=(e)=>{
       <Header />
 
       <Text>{state.token}</Text>
-      <Container>
+      <Container color={"GrayText"}>
         <form onSubmit={handleSubmit}>
         <FormControl isRequired>
           <FormLabel >Email address</FormLabel>
@@ -77,7 +77,7 @@ const handleChange=(e)=>{
           <br />
           <FormHelperText>We'll never share your email and password.</FormHelperText>
           <br />
-          <Input type="submit" value="Log In" />
+          <Input type="submit" value="Log In" bg={"green"} color={"white"} />
         </FormControl>
         </form>
       </Container>

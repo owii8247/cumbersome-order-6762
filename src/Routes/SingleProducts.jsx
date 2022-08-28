@@ -51,28 +51,28 @@ const SingleProducts = () => {
       <Header />
       <Box textAlign={"start"} p={10}>
         <Breadcrumb separator=">">
-          <BreadcrumbItem>
+          <BreadcrumbItem color={"GrayText"} fontSize={"sm"}>
             <BreadcrumbLink href="/">Home</BreadcrumbLink>
           </BreadcrumbItem>
 
-          <BreadcrumbItem>
+          <BreadcrumbItem color={"GrayText"} fontSize={"sm"}>
             <BreadcrumbLink href="/products">Products</BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
+          <BreadcrumbItem color={"GrayText"} fontSize={"sm"}>
             <BreadcrumbLink href="/fruits">{data.category}</BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
+          <BreadcrumbItem fontSize={"sm"}>
             <BreadcrumbLink href="">{data.name}</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
-      <Container maxW={"80%"} p={10}>
+      <Container maxW={"80%"} p={5}>
         <Flex>
           <Box  w={"30%"}>
-            <Image boxSize={"400px"} src={data.imgUrl} />
+            <Image boxSize={"300px"} src={data.imgUrl} />
           </Box>
-          <Box  w={"70%"} textAlign={"start"} p={10}>
-            <Text fontWeight={"bold"} fontSize={"xl"}>{data.name}</Text><br />
+          <Box  w={"70%"} textAlign={"start"} p={5}>
+            <Text fontWeight={"bold"} fontSize={"xl"} color={"GrayText"}>{data.name}</Text><br />
             <Text>{data.packSize}</Text><br />
             <Text color={"red"} fontWeight={"semibold"}>₹ {data.price}</Text><br />
             {/* <Button variant='ghost' colorScheme='white' borderRadius={25} border={"0.5px solid green"} color={"green"} gap={"2"}
@@ -112,8 +112,8 @@ const SingleProducts = () => {
                 <Tab>Benefits</Tab>
                 <Tab>Info</Tab>
               </TabList>
-              <TabPanels p='2rem'>
-                <TabPanel>{data.name} {"-"} ₹ {data.price} {"-"} {data.packSize} {" "} {data.soldOut}</TabPanel>
+              <TabPanels p='2rem' color={"GrayText"}>
+                <TabPanel >{data.name} {"-"} ₹ {data.price} {"-"} {data.packSize} {" "} {data.soldOut}</TabPanel>
                 <TabPanel>{data.name } lower blood pressure, reduce the risk of heart disease.</TabPanel>
                 <TabPanel>{data.name} can help keep appetite in check.</TabPanel>
               </TabPanels>
