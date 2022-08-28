@@ -8,6 +8,10 @@ Vercel : https://project-fraazo.vercel.app/
 
 Netlify : https://project-fraazo-owii8247.netlify.app/
 
+## Json Server Api 
+
+api : https://fraazo-api.herokuapp.com/api/products
+
 ## Home Page 
 
 ![Navbar](https://user-images.githubusercontent.com/100846987/187068221-894765e4-7b1c-46af-b61c-cce751225e26.PNG)
