@@ -12,6 +12,10 @@ Netlify : https://project-fraazo-owii8247.netlify.app/
 
 api : https://fraazo-api.herokuapp.com/api/products
 
+## Presentation Video
+
+Google Drive : https://drive.google.com/file/d/1AYzErN27UoAQjg-8lKPdVdlYOZPjuLXc/view
+
 ## Home Page 
 
 ![Navbar](https://user-images.githubusercontent.com/100846987/187068221-894765e4-7b1c-46af-b61c-cce751225e26.PNG)
