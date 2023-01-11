@@ -27,7 +27,8 @@ const Vegetables = () => {
     const {count, addCount,subCount} = useContext(AuthContext)
     
     useEffect(() => {
-        axios(`https://fraazo-api.herokuapp.com/api/products?_start=1&_end=75&_limit=20`)
+        //axios(`https://fraazo-api.herokuapp.com/api/products?_start=1&_end=75&_limit=20`)
+        axios(`https://nice-sandals-pig.cyclic.app/api/products?_start=1&_end=75&_limit=20`)
             .then((res) => {
                 console.log(res)
                 setData(res.data)

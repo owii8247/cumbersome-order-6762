@@ -27,7 +27,8 @@ const SingleProducts = () => {
 
   const params = useParams()
   useEffect(() => {
-    axios(`https://fraazo-api.herokuapp.com/api/products/${params.id}`)
+    //axios(`https://fraazo-api.herokuapp.com/api/products/${params.id}`)
+    axios(`https://nice-sandals-pig.cyclic.app/api/products/${params.id}`)
       .then((res) => {
         console.log(res)
         setData(res.data)

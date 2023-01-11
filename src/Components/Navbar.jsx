@@ -52,7 +52,7 @@ const Navbar = () => {
                     <Stack>
                         <Flex justifyContent={"space-around"} padding={"1rem"} color={"GrayText"}>
                             <Flex gap={"15px"} cursor={"pointer"}>
-                                <Link to="/"><Box><Image height='40px' width='140px' src="https://webasset.fraazo.com/production/b70a67f4e825e3d388ac4466952c20a8.svg" /></Box></Link>
+                                <Link to="/"><Box><Image height='40px' width='140px' src="https://entrackr-bucket.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/06/17155240/fraazo.jpg" /></Box></Link>
                                 <Button variant='ghost' colorScheme='white' gap={"2"}>
                                     <Box fontSize={"sm"}><FaMapMarkerAlt /></Box>
                                     <Box fontSize={"sm"}>Mumbai</Box>
