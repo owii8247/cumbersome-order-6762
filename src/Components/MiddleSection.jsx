@@ -24,7 +24,8 @@ const MiddleSection = () => {
     const [data, setData] = useState([])
     const { count, addCount, subCount } = useContext(AuthContext)
     useEffect(() => {
-        axios(`https://fraazo-api.herokuapp.com/api/products?_start=140&_end=142&_limit=2`)
+        //axios(`https://fraazo-api.herokuapp.com/api/products?_start=140&_end=142&_limit=2`)
+        axios(`https://nice-sandals-pig.cyclic.app/api/products?_start=140&_end=142&_limit=2`)
             .then((res) => {
                 console.log(res)
                 setData(res.data)
@@ -95,10 +96,10 @@ const MiddleSection = () => {
             <Flex justifyContent={'center'} gap={10}>
 
                 <Link to="/fruits">
-                    <Image w={300} h={280} src="https://imagemaster.fraazo.com/fraazo-master/webban/Fruits.png" />
+                    <Image w={300} h={280} src="https://askmeguy.com/wp-content/uploads/2021/11/Fraazo-Referral-Code.jpg" />
                 </Link>
                 <Link to="/vegetables">
-                    <Image w={300} h={280} src="https://imagemaster.fraazo.com/fraazo-master/webban/Vegetables.png" />
+                    <Image w={300} h={280} src="https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2022-04/fraazo.jpg" />
                 </Link>
 
             </Flex>
