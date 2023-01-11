@@ -64,7 +64,7 @@ const Fruits = () => {
                             <Box boxShadow='xl' p='6' rounded='md' bg='white' key={item.id}>
                                 
                                     <Stack>
-                                    <Link to={`/products/${item.id}`}><Image w={250} h={200} bg={"#f9f9f9"} src={item.imgUrl} /></Link>
+                                    <Link to={`/products/${item.id}`}><Box w={250} h={200}><Image  bg={"#f9f9f9"} src={item.imgUrl} /></Box></Link>
                                         <Text textAlign={"start"} fontSize='sm' color={"GrayText"}>{item.name}</Text>
                                         <br />
                                         <Flex justifyContent={"space-around"} gap={20}>

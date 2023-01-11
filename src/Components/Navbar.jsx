@@ -52,7 +52,7 @@ const Navbar = () => {
                     <Stack>
                         <Flex justifyContent={"space-around"} padding={"1rem"} color={"GrayText"}>
                             <Flex gap={"15px"} cursor={"pointer"}>
-                                <Link to="/"><Box><Image height='40px' width='140px' src="https://entrackr-bucket.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/06/17155240/fraazo.jpg" /></Box></Link>
+                                <Link to="/"><Box><Image height='40px' width='140px' src="https://i1.wp.com/www.indiaretailing.com/wp-content/uploads/2022/04/Fraazo-Logo.png?resize=681%2C400&ssl=1" /></Box></Link>
                                 <Button variant='ghost' colorScheme='white' gap={"2"}>
                                     <Box fontSize={"sm"}><FaMapMarkerAlt /></Box>
                                     <Box fontSize={"sm"}>Mumbai</Box>
