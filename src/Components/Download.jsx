@@ -14,11 +14,21 @@ import {
     Input,
     InputGroup,
     InputLeftAddon,
+    useToast,
 
 } from '@chakra-ui/react'
 import { FaGooglePlay, FaApple } from "react-icons/fa"
 
 const Download = () => {
+    const toast = useToast()
+    const handleDownload=()=>{
+        toast({
+            position: 'top',
+            title: `Link to download the app has been sent to entered mobile number`,
+            status: "success",
+            isClosable: true,
+          })
+    }
     return (
         <>
             <Container maxW={"100%"} p={10}>
@@ -46,10 +56,10 @@ const Download = () => {
                             <br /><br />
                             <InputGroup padding={"1.5rem"} w={"100%"}>
                                 <InputLeftAddon children='+91' />
-                                <Input type='tel' placeholder='Enter Your Mobile Number' />
+                                <Input type='tel' placeholder='Enter Your Mobile Number' maxLength={10}/>
                             </InputGroup>
                             <br />
-                            <Button colorScheme='green' padding={"1.5rem"} w={"90%"}>SUBMIT</Button>
+                            <Button colorScheme='green' padding={"1.5rem"} w={"90%"} onClick={handleDownload}>SUBMIT</Button>
                             <br /><br /><br />
                             <Flex justifyContent={"space-evenly"}>
                                 <Button colorScheme={"whiteAlpha"} color={"GrayText"}>Available On</Button>

@@ -41,9 +41,9 @@ const SliderComponent = () => {
                     onSwiper={(swiper) => console.log(swiper)}>
                     
                     
-                    <SwiperSlide>
+                    {/* <SwiperSlide> */}
                         
-                    <Link to="/products">
+                    {/* <Link to="/products">
                         <Image src="https://assets.entrepreneur.com/content/3x2/2000/1625220693-nrd-D6Tu-L3chLE-unsplash.jpg" />
                         </Link>
                     </SwiperSlide>
@@ -56,6 +56,12 @@ const SliderComponent = () => {
                     <Link to="/products">
                         <Image src="https://pbs.twimg.com/media/EWihQMMU0AYlDHD.jpg" />
                         </Link>
+                    </SwiperSlide> */}
+
+                    <SwiperSlide>
+                    <Link to="/products">
+                        <Image src="https://referralcode.in/wp-content/uploads/2020/10/Banner_Fraazo.png" />
+                        </Link>
                     </SwiperSlide>
                     <SwiperSlide>
                     <Link to="/products">
@@ -64,9 +70,24 @@ const SliderComponent = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                     <Link to="/products">
-                        <Image src="https://pbs.twimg.com/media/EWihQMMU0AYlDHD.jpg" />
+                        <Image src="https://referralcode.in/wp-content/uploads/2020/10/Banner_Fraazo.png" />
                         </Link>
                     </SwiperSlide>
+                    <SwiperSlide>
+                    <Link to="/products">
+                        <Image src="https://referralcode.in/wp-content/uploads/2020/10/Banner_Fraazo.png" />
+                        </Link>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                    <Link to="/products">
+                        <Image src="https://referralcode.in/wp-content/uploads/2020/10/Banner_Fraazo.png" />
+                        </Link>
+                    </SwiperSlide>
+                    {/* <SwiperSlide>
+                    <Link to="/products">
+                        <Image src="https://pbs.twimg.com/media/EWihQMMU0AYlDHD.jpg" />
+                        </Link>
+                    </SwiperSlide> */}
                     
                     
                 </Swiper>
