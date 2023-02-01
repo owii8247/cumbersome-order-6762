@@ -1,8 +1,5 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Container, Flex, Image, Text, useColorModeValue } from '@chakra-ui/react'
 import React, { useContext, useEffect, useState } from 'react'
-import Footer from '../Components/Footer'
-import Header from '../Components/Header'
-import Navbar from '../Components/Navbar'
 import { FaShoppingCart } from "react-icons/fa"
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -30,14 +27,14 @@ const SingleProducts = () => {
     //axios(`https://fraazo-api.herokuapp.com/api/products/${params.id}`)
     axios(`https://nice-sandals-pig.cyclic.app/api/products/${params.id}`)
       .then((res) => {
-        console.log(res)
+        //console.log(res)
         setData(res.data)
       })
       .catch((err) => {
         alert("Error")
       })
   }, [params.id])
-  console.log("single", data)
+  //console.log("single", data)
 
   const colors = useColorModeValue(
     ['red.50', 'teal.50', 'blue.50'],
@@ -48,8 +45,7 @@ const SingleProducts = () => {
 
   return (
     <>
-      <Navbar />
-      <Header />
+      
       <Box textAlign={"start"} p={10}>
         <Breadcrumb separator=">">
           <BreadcrumbItem color={"GrayText"} fontSize={"sm"}>
@@ -123,7 +119,7 @@ const SingleProducts = () => {
           </Box>
         </Flex>
       </Container>
-      <Footer />
+    
     </>
   )
 }

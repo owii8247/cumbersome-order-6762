@@ -1,4 +1,4 @@
-import { Box, Button, Container, Divider, Flex, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Container, Divider, Flex, Image, Stack, Text } from '@chakra-ui/react'
 import React, { useContext, useEffect, useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
 import axios from "axios"
@@ -16,10 +16,8 @@ import {
     PopoverContent,
     PopoverHeader,
     PopoverBody,
-    PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
-    PopoverAnchor,
     Portal
   } from '@chakra-ui/react'
 
@@ -32,12 +30,12 @@ const Fruits = () => {
         //axios(`https://fraazo-api.herokuapp.com/api/products?_start=89&_end=120&_limit=20`)
         axios(`https://nice-sandals-pig.cyclic.app/api/products?_start=89&_end=120&_limit=20`)
             .then((res) => {
-                console.log(res)
+                //console.log(res)
                 setData(res.data)
             })
             .catch((err) => alert("Error"))
     }, [])
-    console.log("final", data)
+    //console.log("final", data)
     return (
         <>
             <Text fontSize='3xl' fontWeight={"light"} textAlign={"start"} pl={10} color={"GrayText"}>FRUITS</Text>
@@ -54,8 +52,22 @@ const Fruits = () => {
                 
                 navigation={true}
                 modules={[Navigation]}
+                breakpoints={{
+                    120: {
+                      slidesPerView: 1,
+                      spaceBetween:30
+                    },
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween:30
+                    },
+                    1024:{
+                        slidesPerView: 4,
+                    }
+                    
+                }}
                 className="mySwiper">
-                    <Container maxW={"100%"}>
+                    <Container maxW={"100%"} >
                 {
                     data.map((item) => (
                         <SwiperSlide>

@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { SimpleGrid, Box, Input, Image, Flex, Stack, Button, useDisclosure, Text } from '@chakra-ui/react'
 import { FaMapMarkerAlt, FaShoppingCart, FaUserAlt, FaCreditCard } from 'react-icons/fa'
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import {
     Modal,
     ModalOverlay,
@@ -21,8 +21,8 @@ import { AuthContext } from "../Context/AppContext";
 const Navbar = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const navigate = useNavigate();
-    const {state, isAuth, dispatch, count } = useContext(AuthContext)
+
+    const {state, dispatch, count } = useContext(AuthContext)
     const [formData, setFormData] = useState(
         {
             name: "",
@@ -38,7 +38,7 @@ const Navbar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData)
+        //console.log(formData)
     }
 
 
@@ -119,11 +119,21 @@ const Navbar = () => {
                                                     <br />
                                                     <Input
                                                         variant='flushed'
+                                                        placeholder='Enter Your Email'
+                                                        type="text"
+                                                        value={formData.name}
+                                                        name="name"
+                                                        onChange={handleChange}
+                                                    />
+                                                    <br />
+                                                    <Input
+                                                        variant='flushed'
                                                         placeholder='Enter Your Mobile Number'
                                                         type="number"
                                                         value={formData.number}
                                                         name="number"
                                                         onChange={handleChange}
+                                                    
                                                     />
                                                     <br />
                                                     

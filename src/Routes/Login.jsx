@@ -1,14 +1,11 @@
-import { Button, Container, Text } from '@chakra-ui/react'
+import { Container, Text } from '@chakra-ui/react'
 import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Footer from '../Components/Footer'
-import Header from '../Components/Header'
-import Navbar from '../Components/Navbar'
+import { useNavigate } from 'react-router-dom'
+
 import { AuthContext } from '../Context/AppContext'
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
   FormHelperText,
   Input
 } from '@chakra-ui/react'
@@ -29,13 +26,13 @@ const handleChange=(e)=>{
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    console.log(form)
+    //console.log(form)
     axios.post("https://reqres.in/api/login", {
       email: form.email,
       password: form.password
     })
     .then((res) => {
-      console.log(res.data);
+      //console.log(res.data);
       dispatch({
         type: "LOGIN_SUCCESS",
         token: res.data.token
@@ -49,8 +46,7 @@ const handleChange=(e)=>{
   }
   return (
     <>
-      <Navbar />
-      <Header />
+      
 
       <Text>{state.token}</Text>
       <Container color={"GrayText"}>
@@ -82,7 +78,7 @@ const handleChange=(e)=>{
         </form>
       </Container>
 
-      <Footer />
+     
     </>
   )
 }

@@ -1,9 +1,6 @@
 import { Box, Button, Container, Flex, SimpleGrid, Stack, Text, Image, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react'
 import React, { useContext, useEffect, useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
-import Footer from '../Components/Footer'
-import Header from '../Components/Header'
-import Navbar from '../Components/Navbar'
 import axios from "axios"
 import { Link, useSearchParams } from "react-router-dom"
 
@@ -40,12 +37,12 @@ const VegetablesPage = () => {
     //axios(`https://fraazo-api.herokuapp.com/api/products?_start=25&_limit=20`)
     axios(`https://nice-sandals-pig.cyclic.app/api/products?_start=25&_limit=20`)
       .then((res) => {
-        console.log(res)
+        //console.log(res)
         setData(res.data)
       })
       .catch((err) => alert("Error"))
   }, [sortById,page])
-  console.log("products", data)
+  //console.log("products", data)
 
   useEffect(()=>{
     setSearchParams({
@@ -60,8 +57,7 @@ const VegetablesPage = () => {
   return (
     
     <>
-      <Navbar />
-      <Header />
+     
       <Container maxW={"100%"}>
         <Flex>
           <Box w={"20%"} p={3}>
@@ -207,7 +203,7 @@ const VegetablesPage = () => {
         </Flex>
 
       </Container>
-      <Footer />
+   
     </>
   )
 }
