@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Stack, Text, Image, SimpleGrid, Flex, Button } from '@chakra-ui/react'
+import { Box, Divider, Stack, Text, Image, SimpleGrid, Flex, Button } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
@@ -13,10 +13,8 @@ import {
     PopoverContent,
     PopoverHeader,
     PopoverBody,
-    PopoverFooter,
     PopoverArrow,
     PopoverCloseButton,
-    PopoverAnchor,
     Portal
 } from '@chakra-ui/react'
 
@@ -25,14 +23,14 @@ const MiddleSection = () => {
     const { count, addCount, subCount } = useContext(AuthContext)
     useEffect(() => {
         //axios(`https://fraazo-api.herokuapp.com/api/products?_start=140&_end=142&_limit=2`)
-        axios(`https://nice-sandals-pig.cyclic.app/api/products?_start=140&_end=142&_limit=2`)
+        axios(`https://nice-sandals-pig.cyclic.app/api/products?_start=140&_end=144&_limit=4`)
             .then((res) => {
-                console.log(res)
+                //console.log(res)
                 setData(res.data)
             })
             .catch((err) => alert("Error"))
     }, [])
-    console.log("final", data)
+    //console.log("final", data)
     return (
         <>
             <Text fontSize='3xl' fontWeight={"light"} textAlign={"start"} pl={10} color={"GrayText"}>BEST DEALS</Text>
@@ -94,14 +92,16 @@ const MiddleSection = () => {
             </SimpleGrid>
             <br /><br /><br />
             <Flex justifyContent={'center'} gap={10}>
-
-                <Link to="/fruits">
-                    <Image w={300} h={280} src="https://askmeguy.com/wp-content/uploads/2021/11/Fraazo-Referral-Code.jpg" />
-                </Link>
-                <Link to="/vegetables">
-                    <Image w={300} h={280} src="https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2022-04/fraazo.jpg" />
-                </Link>
-
+                {/* <SimpleGrid columns={[1, 2, 4, 4]}  spacing={1} ml={500}> */}
+                    
+                    <Link to="/fruits">
+                        <Image w={300} h={280} src="https://askmeguy.com/wp-content/uploads/2021/11/Fraazo-Referral-Code.jpg" />
+                    </Link>
+                    <Link to="/vegetables">
+                        <Image w={300} h={280} src="https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2022-04/fraazo.jpg" />
+                    </Link>
+                    
+                {/* </SimpleGrid> */}
             </Flex>
             <br />
             <Fruits />

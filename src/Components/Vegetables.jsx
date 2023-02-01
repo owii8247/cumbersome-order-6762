@@ -30,12 +30,12 @@ const Vegetables = () => {
         //axios(`https://fraazo-api.herokuapp.com/api/products?_start=1&_end=75&_limit=20`)
         axios(`https://nice-sandals-pig.cyclic.app/api/products?_start=1&_end=75&_limit=20`)
             .then((res) => {
-                console.log(res)
+                //console.log(res)
                 setData(res.data)
             })
             .catch((err) => alert("Error"))
     }, [])
-    console.log("final", data)
+    //console.log("final", data)
     return (
         <>
             
@@ -54,6 +54,20 @@ const Vegetables = () => {
                 
                 navigation={true}
                 modules={[Navigation]}
+                breakpoints={{
+                    120: {
+                      slidesPerView: 1,
+                      spaceBetween:30
+                    },
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween:30
+                    },
+                    1024:{
+                        slidesPerView: 4,
+                    }
+                    
+                }}
                 className="mySwiper">
                     <Container maxW={"100%"}>
                 {

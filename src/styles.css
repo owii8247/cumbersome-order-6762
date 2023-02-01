@@ -29,3 +29,15 @@
     height: 100%;
     object-fit: cover;
   } */
+
+/* 
+  @media all and (min-width:380px) and (max-width:768px){
+    .swipeimg{
+      width: 50%;
+    }
+  }
+  @media all and (min-width:80px) and (max-width:380px){
+    .swipeimg{
+      width: 50%;
+    }
+  } */

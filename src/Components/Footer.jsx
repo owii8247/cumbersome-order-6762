@@ -19,12 +19,12 @@ const Footer = () => {
     <>
       <Container maxW={"100%"} >
         <Box>
-          <Image w={"100%"} src="https://webasset.fraazo.com/production/a72cf5cd03bd56f4be37fa1c4ce7062d.svg" />
+          {/* <Image w={"100%"} src="https://webasset.fraazo.com/production/a72cf5cd03bd56f4be37fa1c4ce7062d.svg" /> */}
           <Box bg={"#165241"}>
             <br /><br /><br />
             <Flex  justifyContent={"space-around"}>
               <Box w={250}>
-                <Link to="/"><Image w={215}  src="https://i1.wp.com/www.indiaretailing.com/wp-content/uploads/2022/04/Fraazo-Logo.png?resize=681%2C400&ssl=1" /></Link><br />
+                <Link to="/"><Image w={215}  src="https://cdn6.aptoide.com/imgs/d/2/5/d250962ae12d9f11a37ba33ea1d30057_fgraphic.png" /></Link><br />
                 <Text textAlign={"start"} color={"lightgray"}>Order online vegetables & fruits
                   directly from the farm. Fraazo is
                   online platform that allows customer

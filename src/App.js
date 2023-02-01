@@ -1,19 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-
-import Navbar from './Components/Navbar';
-import Download from './Components/Download';
 import Footer from './Components/Footer';
-import SliderComponent from './Components/SliderComponent';
 import AllRoutes from './Routes/AllRoutes';
-
-
+import Navbar1 from './Components/Navbar1';
+import Header from './Components/Header';
 
 
 function App() {
   return (
     <div className="App">
+      <Navbar1 />
+      <Header />
       <AllRoutes />
+      <Footer />
 
       
     </div>
@@ -21,4 +19,3 @@ function App() {
 }
 
 export default App;
- //check

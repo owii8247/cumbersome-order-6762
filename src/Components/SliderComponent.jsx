@@ -10,13 +10,13 @@ import "swiper/css/bundle"
 
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { Link } from 'react-router-dom';
-
+import styles from "./SliderComponent.module.css"
 const SliderComponent = () => {
     return (
         <>
             
             <Flex justifyContent={"space-between"} p={10} gap={40}>
-                <Box w={700} h={350}>
+                <Box w={700} h={350} className={styles.slider}>
                 <Swiper
                     
                     centeredSlides={true}

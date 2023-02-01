@@ -1,0 +1,11 @@
+
+  @media all and (min-width:380px) and (max-width:768px){
+    .slider{
+      display: none;
+    }
+  }
+  @media all and (min-width:80px) and (max-width:380px){
+    .slider{
+        display: none;
+      }
+  }

@@ -1,9 +1,6 @@
 import { Box, Button, Container, Flex, SimpleGrid, Stack, Text, Image, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react'
 import React, { useContext, useEffect, useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa"
-import Footer from '../Components/Footer'
-import Header from '../Components/Header'
-import Navbar from '../Components/Navbar'
 import axios from "axios"
 import { Link, useSearchParams } from "react-router-dom"
 
@@ -60,8 +57,7 @@ const FruitsPage = () => {
   return (
     
     <>
-      <Navbar />
-      <Header />
+     
       <Container maxW={"100%"}>
         <Flex>
           <Box w={"20%"} p={3}>
@@ -207,7 +203,7 @@ const FruitsPage = () => {
         </Flex>
 
       </Container>
-      <Footer />
+   
     </>
   )
 }
