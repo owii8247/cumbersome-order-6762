@@ -10,7 +10,7 @@ const Home = () => {
 
       <SliderComponent />
       <MiddleSection />
-      <Download />
+      {/* <Download /> */}
 
     </div>
   )

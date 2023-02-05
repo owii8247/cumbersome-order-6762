@@ -49,7 +49,7 @@ const handleChange=(e)=>{
       
 
       <Text>{state.token}</Text>
-      <Container color={"GrayText"}>
+      <Container color={"GrayText"} p={10}>
         <form onSubmit={handleSubmit}>
         <FormControl isRequired>
           <FormLabel >Email address</FormLabel>

@@ -15,6 +15,7 @@ import {
     useDisclosure,
     Stack,
     Text,
+    ModalCloseButton,
 } from '@chakra-ui/react';
 import { FaCreditCard, FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import { AuthContext } from '../Context/AppContext';
@@ -174,7 +175,9 @@ const Navbar1 = () => {
                         w="150px"
                         h="40px"
                     />
+                    
                 </Link>
+                <ModalCloseButton />
                         </DrawerHeader>
                         <DrawerBody>
                             <Stack spacing={4}>
