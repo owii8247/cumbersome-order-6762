@@ -91,7 +91,8 @@ const SliderComponent = () => {
                     
                     
                 </Swiper>
-                </Box>
+                </Box> 
+                <Box className={styles.farm}>
                 <Stack mr={10}>
                         <Link to="/fruits">
                         <Image w={400} h={90} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7B8F1U75-fRZBV8pC6IkDTPaOm2-IcnY7hK4ojBLJIk1fPSiA_R9P2pYYCNTQocinPlU&usqp=CAU" />
@@ -107,6 +108,7 @@ const SliderComponent = () => {
                         </Link>
                         <br />
                 </Stack>
+                </Box>
             </Flex>
             <Divider />
         </>

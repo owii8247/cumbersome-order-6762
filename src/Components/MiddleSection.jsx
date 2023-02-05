@@ -37,7 +37,7 @@ const MiddleSection = () => {
 
             <Divider />
             <br />
-            <SimpleGrid columns={[1, 2, 4, 4]} ml={10} spacing={5} >
+            <SimpleGrid columns={[1, 2, 3, 4]} ml={10} spacing={5} >
 
 
                 {
@@ -91,7 +91,7 @@ const MiddleSection = () => {
                     ))}
             </SimpleGrid>
             <br /><br /><br />
-            <Flex justifyContent={'center'} gap={10}>
+            <Flex justifyContent={'center'} gap={10} flexDirection={{ base: "column", md: "row"}}>
                 {/* <SimpleGrid columns={[1, 2, 4, 4]}  spacing={1} ml={500}> */}
                     
                     <Link to="/fruits">

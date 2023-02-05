@@ -59,7 +59,7 @@ const Products = () => {
     <>
       
       <Container maxW={"100%"}>
-        <Flex>
+        <Flex flexDirection={{ base: "column", md: "row" }}>
           <Box w={"20%"} p={3}>
 
             <Accordion allowMultiple color={"GrayText"} >
@@ -125,7 +125,7 @@ const Products = () => {
 
           </Box>
           <Box w={"80%"} >
-            <Flex justifyContent={"space-between"} p={5}>
+            <Flex justifyContent={"space-between"} p={5} flexDirection={{ base: "column", md: "row" }}>
               <Box>
           <Breadcrumb separator=">">
               <BreadcrumbItem color={"GrayText"} fontSize={"sm"}>
@@ -151,7 +151,7 @@ const Products = () => {
                       <Link to={`/products/${item.id}`}><Image w={250} h={200} bg={"#f9f9f9"} src={item.imgUrl} /></Link>
                       <Text textAlign={"start"} fontSize='sm' color={"GrayText"}>{item.name}</Text>
                       <br />
-                      <Flex justifyContent={"space-between"} gap={20}>
+                      <Flex justifyContent={"space-between"} gap={20} flexDirection={{ base: "column", md: "row" }}>
                         <Box w={10}>
                           <Text textAlign={"start"} fontSize='xs' color={"GrayText"}>{item.packSize}</Text>
                           <Text fontWeight={"bold"} textAlign={"start"} fontSize='sm'>₹ {item.price}</Text>

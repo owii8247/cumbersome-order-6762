@@ -3,9 +3,15 @@
     .slider{
       display: none;
     }
+    .farm{
+      margin: auto;
+    }
   }
   @media all and (min-width:80px) and (max-width:380px){
     .slider{
         display: none;
+      }
+      .farm{
+        margin: auto;
       }
   }
